@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="css/style.css" >
+</head>
+<body>
+   <header></header>
+   <main id="app">
+      <h1>ApiPost2025</h1>
+      <section>
+         <h2>Category</h2>
+         <form v-on:submit.prevent="onAddCategory()">
+            <div>
+               <input type="text" v-model="category.name">
+               <div v-show="isCategory">
+                  <p v-for="error in errors.name" class="errors">{{ error }}</p>
+               </div>
+            </div>
+            
+            
+            <button type="submit">Create</button>
+         </form>
+         <div>
+            <select v-model="delCategory">
+               <option value="default" selected disabled>Select category</option>
+               <option v-for="category in  categories" v-bind:value="category.id">
+                  {{ category.name }}
+               </option>
+            </select>
+            <button v-on:click="onDeleteCategory()">Delete</button>
+         </div>
+      </section>
+   </main>
+
+   <footer></footer>
+
+   <script src="js/vue.global.js"></script>
+   <script src="js/app.js"></script>
+</body>
+</html>
