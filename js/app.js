@@ -25,7 +25,7 @@ const app = Vue.createApp({
                 body: JSON.stringify(this.category)
             })
             
-            if($response.status !== 402){
+            if($response.status != 201){
                 $response = await $response.json()
                 this.categories = ''
                 this.category.name = ''
